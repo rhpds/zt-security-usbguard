@@ -10,3 +10,6 @@ chmod 666 /tmp/progress.log
 
 #dnf install -y nc
 
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+
+dnf install -y certbot
