@@ -1,6 +1,18 @@
-Lab Login Info
-
 Welcome to this USBGuard lab experience for Red Hat Enterprise Linux.
+
+In this lab, We teach you about USBGuard.
+
+You can use USBGuard to protect your Red Hat Enterprise Linux system against intrusive USB devices. 
+This framework helps prevent attacks, such as those involving malware or trojans loaded onto USB drives.
+
+The USBGuard framework provides the following components:
+
+* The system service component with an inter-process communication (IPC) interface for dynamic interaction and policy enforcement
+* The command-line interface to interact with a running usbguard system service
+* The rule language for writing USB device authorization policies
+* The C++ API for interacting with the system service component implemented in a shared library
+
+About this Lab Environment: 
 
 The system displayed beside this text is a Red Hat Enterprise Linux 10
 system registered with Subscription Manager. An unprivileged user also
@@ -22,3 +34,5 @@ Password:
 
 Enjoy your USBGuard lab time, the system will disconnect after about
 60 minutes.
+
+With the intro to USBGuard out of the way, lets head to the next step.
