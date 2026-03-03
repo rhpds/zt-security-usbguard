@@ -9,14 +9,4 @@ Step 2.1 - Install the usbguard package:
 dnf install usbguard
 ----
 
-
-=== Explanation
-
-- `name`: The name of the documentation folder, here called `modules`.
-- `dir`: The directory where the documentation files will be located (`www`). 
-- `modules`: The list of modules that make up your lab.
-
-Each module has:
-
-- `name`: The file name within the `pages` directory.
-- `label`: A human-readable label for display in navigation.
+Now that we have it installed, lets go to the next step to configure it.
