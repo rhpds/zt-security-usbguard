@@ -1,31 +1,18 @@
 Configure USBGuard
 
-= Tabs
 
-[source,yaml]
+Step 3.1 - Create an initial rule set:
+[source,ini,role=execute,subs=attributes+]
 ----
-tabs:
-  - name: ">_ terminal"
-    type: "terminal"
-  - name: "Asciidoc Doc"
-    url: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
-    external: true
+usbguard generate-policy > /etc/usbguard/rules.conf
 ----
 
-=== Explanation
 
-- `name`: The label that appears on the tab in the UI.
-- `type`: Defines the tab layout. Options include:
-  - `terminal`: For a single terminal-like block.
-  - `double-terminal`: For a side-by-side terminal view.
-- `url`: Used to link to an external page.
-- `path`: (If no url is defined) The base path where the service will be served, e.g., `/tty`.
-- `port`: (If no url is defined) The port where the service will be served, e.g., `3000`.
-- `external`: If `true`, the link opens in a new tab/window.
+Step 3.2 - Start The Service:
+Start the usbguard daemon and ensure that it starts automatically on boot
+[source,ini,role=execute,subs=attributes+]
+----
+systemctl enable --now usbguard
+----
 
-== Resulting UI
-
-You might see two tabs in your UI:
-- A terminal emulator style display
-- A link to AsciiDoc syntax reference
-
+Now that we have it installed and configured, lets cover how to veriy it in the next section.
