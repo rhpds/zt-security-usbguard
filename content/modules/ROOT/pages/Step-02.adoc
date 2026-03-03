@@ -6,7 +6,7 @@ This is the first step in defending against physical security breaches.
 Step 2.1 - Install the usbguard package:
 [source,ini,role=execute,subs=attributes+]
 ----
-dnf install usbguard
+dnf install usbguard -y
 ----
 
 Now that we have it installed, lets go to the next step to configure it.
