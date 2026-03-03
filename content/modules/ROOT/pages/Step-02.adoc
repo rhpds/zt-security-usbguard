@@ -1,23 +1,14 @@
-Install USBGuard
+== Installing the USBGuard packages
 
+Install the USBGuard framework to begin defining policies that govern which USB devices are allowed to connect to your Red Hat Enterprise Linux system. 
+This is the first step in defending against physical security breaches.
 
-= Antora
-
-The `antora` key in `ui-config.yml` defines how the documentation site is built using Antora.
-
-[source,yaml]
+Step 2.1 - Install the usbguard package:
+[source,ini,role=execute,subs=attributes+]
 ----
-antora:
-  name: modules
-  dir: www
-  modules:
-    - name: module-01 
-      label: "Writing your lab"
-    - name: module-02
-      label: "Antora"
-    - name: module-03
-      label: "Tabs"
+dnf install usbguard
 ----
+
 
 === Explanation
 
