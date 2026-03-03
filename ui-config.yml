@@ -4,14 +4,24 @@ antora:
   name: modules
   dir: www
   modules:
-    - name: module-01
-      label: "Writing your lab"
+    - name: Step-01
+      label: "Lab Login Info"
       solveButton: true
-    - name: module-02
-      label: "Antora"
+    - name: Step-02
+      label: "Install USBGuard"
       solveButton: true
-    - name: module-03
-      label: "Tabs"
+    - name: Step-03
+      label: "Configure USBGuard"
+    - name: Step-04
+      label: "Verify USBGuard"
+    - name: Step-05
+      label: "Monitor USBGuard"
+    - name: Step-06
+      label: "Limitations of USBGuard"
+    - name: Step-07
+      label: "Real World Examples of USBGuard"
+    - name: Step-08
+      label: "Resources for USBGuard"
 
 tabs:
   - name: ">_ terminal"
