@@ -1,3 +1,5 @@
+Lab Login Info
+
 Welcome to this USBGuard lab experience for Red Hat Enterprise Linux.
 
 The system displayed beside this text is a Red Hat Enterprise Linux 10
