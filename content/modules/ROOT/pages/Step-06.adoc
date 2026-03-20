@@ -1,1 +1,6 @@
 Limitations of USBGuard
+
+Limitations
+Cloning devices
+Vendor-specific drivers
+Some USB Keyboards don’t provide a unique serial number

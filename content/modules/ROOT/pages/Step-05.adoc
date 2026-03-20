@@ -1,1 +1,14 @@
 Monitor USBGuard
+
+Step 5.1 - List the devices seen by USBGuard:
+[source,ini,role=execute,subs=attributes+]
+----
+usbguard list-devices
+----
+
+Step 5.2 - Watch live for the USB devices recognized by USBGuard:
+[source,ini,role=execute,subs=attributes+]
+----
+usbguard watch
+----
+We have seen what the monitor for usbguard can do, lets go to the next section.
