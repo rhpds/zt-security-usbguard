@@ -1,18 +1,41 @@
-Welcome to this USBGuard lab experience for Red Hat Enterprise Linux.
+# USBGuard Workshop Lab - RHEL 10
 
-In this lab, We teach you about USBGuard.
+## Workshop Overview
 
-You can use USBGuard to protect your Red Hat Enterprise Linux system against intrusive USB devices. 
-This framework helps prevent attacks, such as those involving malware or trojans loaded onto USB drives.
+This hands-on lab introduces USBGuard, a software framework for implementing USB device authorization policies on Linux systems. Learn to protect your RHEL 10 systems from unauthorized USB devices and potential security threats.
 
-The USBGuard framework provides the following components:
+## Learning Objectives
 
-* The system service component with an inter-process communication (IPC) interface for dynamic interaction and policy enforcement
-* The command-line interface to interact with a running usbguard system service
-* The rule language for writing USB device authorization policies
-* The C++ API for interacting with the system service component implemented in a shared library
+By the end of this workshop, you will be able to:
+- Understand USBGuard architecture and use cases
+- Install and configure USBGuard on RHEL 10
+- Create and manage USB device authorization policies
+- Use USBGuard CLI tools to control device access
+- Implement security policies for enterprise environments
+- Troubleshoot common USBGuard issues
 
-About this Lab Environment: 
+## Prerequisites
+
+- Red Hat Enterprise Linux 10 system (physical or virtual)
+- Root or sudo access
+- Basic Linux command-line knowledge
+- At least one USB device for testing
+
+## Lab Environment
+
+- **OS**: Red Hat Enterprise Linux 10
+- **Required Packages**: usbguard, usbguard-tools
+- **Time Required**: 90-120 minutes
+
+## Workshop Structure
+
+1. **[Lab 1: Installation and Setup](lab1-installation.md)** (5 min)
+2. **[Lab 2: Understanding USB Device Rules](lab2-device-rules.md)** (5 min)
+3. **[Lab 3: Policy Creation and Management](lab3-policy-management.md)** (10 min)
+
+
+
+## About this Lab Environment: 
 
 The system displayed beside this text is a Red Hat Enterprise Linux 10
 system registered with Subscription Manager. An unprivileged user also
