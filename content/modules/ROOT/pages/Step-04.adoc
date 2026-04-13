@@ -1,4 +1,4 @@
-Step 4
+# USBGuard Rules and Policy
 
 ### 4.1 View Current Rules
 
