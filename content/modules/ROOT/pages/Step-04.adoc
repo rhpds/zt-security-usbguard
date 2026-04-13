@@ -1,15 +1,125 @@
-Verify USBGuard
+Step 4
 
-Step 4.1 - Verify that the usbguard service is running:
+### 4.1 View Current Rules
+
+Examine your current policy:
+
 [source,ini,role=execute,subs=attributes+]
 ----
-systemctl status usbguard
+sudo cat /etc/usbguard/rules.conf
 ----
 
-Step 4.2 - List USB devices recognized by USBGuard:
+### 4.2 Understand Rule Examples
+
+Let's break down a typical rule:
+
 [source,ini,role=execute,subs=attributes+]
 ----
-usbguard list-devices
+allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver" hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" parent-hash "rV6GDcfPhp0vLago4zlN1VWCOJh/zBvFe3r8CvLPk3c=" via-port "1-2"
 ----
+
+**Breaking it down**:
+- `allow` - This device is authorized
+- `id 046d:c52b` - Logitech vendor ID (046d), product ID (c52b)
+- `serial "1234ABCD"` - Unique serial number
+- `name "Logitech USB Receiver"` - Human-readable name
+- `hash` - Device descriptor hash (ensures exact device match)
+- `parent-hash` - Hash of the parent USB hub
+- `via-port "1-2"` - Connected to port 1-2
+
+### 4.3 List Devices with Details
+
+View all connected devices with full attributes:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo usbguard list-devices
+----
+
+Example output:
+```
+1: allow id 1d6b:0002 serial "0000:00:14.0" name "xHCI Host Controller" hash "jEP/6Wzv..." parent-hash "rV6GDc..." via-port "usb1"
+2: allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver" hash "abc123..." parent-hash "xyz789..." via-port "1-2"
+```
+
+The number at the start (1:, 2:) is the device ID used for runtime control.
+
+### 4.4 Device Attribute Exercise
+
+Connect a USB device (if available) and identify its attributes:
+
+[source,ini,role=execute,subs=attributes+]
+----
+# Watch for new devices
+sudo usbguard watch
+
+# In another terminal, connect a USB device
+# Observe the output
+----
+
+Press Ctrl+C to stop watching.
+
+### 4.5 Understanding Interface Types
+
+USB devices have interface classes that define their type:
+
+Common interface types:
+- `03:00:01` - HID Keyboard
+- `03:00:02` - HID Mouse
+- `08:*:*` - Mass Storage
+- `09:00:00` - USB Hub
+- `0e:*:*` - Video devices
+- `ff:*:*` - Vendor Specific
+
+View interfaces:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo usbguard list-devices | grep -A 5 "with-interface"
+----
+
+### 4.6 Rule Precedence
+
+Rules are evaluated **top to bottom**. The first matching rule wins.
+
+Example:
+```
+# This blocks ALL USB storage devices
+block with-interface 08:*:*
+
+# This would allow a specific USB drive (but never matches due to rule above!)
+allow id 0781:5583 serial "ABC123"
+```
+
+**Correct order**:
+```
+# Allow specific USB drive first
+allow id 0781:5583 serial "ABC123"
+
+# Block all other USB storage
+block with-interface 08:*:*
+```
+
+### 4.7 Practice: Create a Simple Rule
+
+Create a rule manually for a keyboard:
+
+[source,ini,role=execute,subs=attributes+]
+----
+# Allow any HID keyboard
+echo 'allow with-interface 03:00:01' | sudo tee -a /etc/usbguard/rules.conf
+----
+
+### 4.8 Validate Rules Syntax
+
+Check if your rules file is valid:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo usbguard read-descriptor --file /etc/usbguard/rules.conf
+----
+
+If there are syntax errors, you'll see error messages.
+
 We have verified that the usbguard service is running, lets go to the next section.
 
