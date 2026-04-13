@@ -1,12 +1,54 @@
 == Installing the USBGuard packages
 
-Install the USBGuard framework to begin defining policies that govern which USB devices are allowed to connect to your Red Hat Enterprise Linux system. 
-This is the first step in defending against physical security breaches.
+## Step 2
 
-Step 2.1 - Install the usbguard package:
+### 2.1 Check System Information
+
+First, verify you're running RHEL 10:
+
 [source,ini,role=execute,subs=attributes+]
-----
-dnf install usbguard -y
-----
+```bash
+cat /etc/redhat-release
+uname -r
+```
 
-Now that we have it installed, lets go to the next step to configure it.
+Expected output should show RHEL 10.
+
+### 2.2 Install USBGuard
+
+Install USBGuard and related tools:
+
+[source,ini,role=execute,subs=attributes+]
+```bash
+sudo dnf install -y usbguard usbguard-tools
+```
+
+### 2.3 Verify Installation
+
+Check the installed version:
+
+[source,ini,role=execute,subs=attributes+]
+```bash
+rpm -qa | grep usbguard
+usbguard --version
+```
+
+### 2.4 Understand USBGuard Components
+
+USBGuard consists of several key components:
+
+- **usbguard-daemon**: The main service that enforces USB policies
+- **usbguard**: CLI tool for managing the daemon
+- **usbguard-applet-qt**: GUI application (optional)
+- **Configuration Files**:
+  - `/etc/usbguard/usbguard-daemon.conf` - Daemon configuration
+  - `/etc/usbguard/rules.conf` - Policy rules
+
+### 2.5 Check Current USB Devices
+
+Before starting USBGuard, list currently connected USB devices:
+
+[source,ini,role=execute,subs=attributes+]
+```bash
+lsusb
+```
