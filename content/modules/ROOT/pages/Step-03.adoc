@@ -1,6 +1,4 @@
-Configure USBGuard
-
-Save this output for reference. These devices will need to be authorized in the policy.
+## Configure USBGuard
 
 ### 3.1 Generate Initial Policy
 
