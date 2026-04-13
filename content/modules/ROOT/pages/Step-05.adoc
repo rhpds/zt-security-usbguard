@@ -1,14 +1,224 @@
-Monitor USBGuard
+# USBGuard Policy Creation and Management
 
-Step 5.1 - List the devices seen by USBGuard:
+### 5.1 Backup Current Policy
+
+Always backup before making changes:
+
 [source,ini,role=execute,subs=attributes+]
 ----
-usbguard list-devices
+sudo cp /etc/usbguard/rules.conf /etc/usbguard/rules.conf.backup
 ----
 
-Step 5.2 - Watch live for the USB devices recognized by USBGuard:
+### 5.2 Understanding the Daemon Configuration
+
+View the daemon configuration:
+
 [source,ini,role=execute,subs=attributes+]
 ----
-usbguard watch
+sudo cat /etc/usbguard/usbguard-daemon.conf
 ----
-We have seen what the monitor for usbguard can do, lets go to the next section.
+
+Key settings to understand:
+
+- **RuleFile**: Location of rules file
+- **ImplicitPolicyTarget**: What to do with devices that don't match any rule
+  - `allow` - Allow by default (permissive)
+  - `block` - Block by default (recommended)
+  - `reject` - Reject by default (strict)
+- **PresentDevicePolicy**: How to handle devices present when daemon starts
+  - `allow` - Allow all present devices
+  - `keep` - Keep current authorization state
+  - `reject` - Reject all devices
+  - `apply-policy` - Apply rules to existing devices
+
+### 5.3 Set a Secure Default Policy
+
+Edit the daemon configuration:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo vi /etc/usbguard/usbguard-daemon.conf
+----
+
+Set these values for a secure configuration:
+
+```
+ImplicitPolicyTarget=block
+PresentDevicePolicy=apply-policy
+PresentControllerPolicy=keep
+InsertedDevicePolicy=apply-policy
+```
+
+Save and exit.
+
+### 5.4 Create a Restrictive Policy
+
+Let's create a policy that:
+- Allows built-in USB controllers
+- Allows keyboards and mice
+- Blocks mass storage devices
+- Blocks all other devices
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
+# Allow USB hubs (needed for proper USB operation)
+allow with-interface 09:00:00
+
+# Allow HID keyboards
+allow with-interface 03:00:01
+
+# Allow HID mice and pointing devices
+allow with-interface 03:00:02 with-interface 03:01:02
+
+# Block USB mass storage devices
+block with-interface 08:*:*
+
+# Block everything else (implicit)
+EOF
+----
+
+### 5.5 Validate the New Policy
+
+Before applying, validate syntax:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo usbguard read-descriptor --file /etc/usbguard/rules.conf
+----
+
+If no errors, the file is valid.
+
+### 5.6 Restart USBGuard Service
+
+Apply the new policy:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo systemctl restart usbguard.service
+----
+
+Check status:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo systemctl status usbguard.service
+----
+
+### 5.7 Test the Policy
+
+Check which devices are currently allowed:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo usbguard list-devices
+----
+
+You should see:
+- USB controllers and hubs: `allow`
+- Keyboards and mice: `allow`
+- Mass storage devices: `block`
+
+### 5.8 Test with a USB Device
+
+If you have a USB flash drive:
+
+1. Insert the USB drive
+2. Check its status:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo usbguard list-devices
+----
+
+You should see it blocked (not authorized).
+
+[source,ini,role=execute,subs=attributes+]
+----
+# Check system messages
+sudo dmesg | tail -20
+----
+
+The device should be detected but not authorized for use.
+
+### 5.9 Create an Allow-List Policy
+
+Now let's create a strict allow-list policy (only specific devices allowed):
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
+# Allow USB controllers
+allow with-interface 09:00:00
+
+# Generate and add specific allow rules for your trusted devices
+# Use: sudo usbguard list-devices
+# Copy the rules for your keyboard, mouse, and other trusted devices here
+
+# Example (replace with your actual device details):
+# allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver"
+
+# Block everything else by default (implicit with ImplicitPolicyTarget=block)
+EOF
+----
+
+### 5.10 Add Specific Devices to Allow-List
+
+For each trusted device currently connected:
+
+[source,ini,role=execute,subs=attributes+]
+----
+# List devices
+sudo usbguard list-devices
+
+# For each trusted device, append its rule
+sudo usbguard list-devices | grep "allow id" | sudo tee -a /etc/usbguard/rules.conf
+----
+
+Review the file:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo cat /etc/usbguard/rules.conf
+----
+
+### 5.11 Test the Allow-List Policy
+
+Restart the service:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo systemctl restart usbguard.service
+----
+
+Try connecting a new USB device (one not in the allow-list):
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo usbguard list-devices
+----
+
+It should be blocked.
+
+### 5.12 Policy for Specific Ports
+
+Create a policy that restricts devices based on physical ports:
+
+[source,ini,role=execute,subs=attributes+]
+----
+sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
+# Allow controllers
+allow with-interface 09:00:00
+
+# Allow any device on front USB ports (example: ports 1-1 and 1-2)
+allow via-port "1-1"
+allow via-port "1-2"
+
+# Block devices on all other ports
+block via-port "1-*"
+EOF
+----
+
+**Note**: Port numbers can be found with `sudo usbguard list-devices`
+
+We have learned about policy creation and management of usbguard, lets go to the next section.
