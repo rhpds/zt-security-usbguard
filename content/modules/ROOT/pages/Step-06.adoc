@@ -4,3 +4,23 @@ Limitations
 Cloning devices
 Vendor-specific drivers
 Some USB Keyboards don’t provide a unique serial number
+
+## What USBGuard Is and Isn't
+
+### **USBGuard IS**:
+
+- Device **authorization** framework
+- USB device **access control**
+- Defense-in-depth **layer**
+- Policy-based **enforcement**
+- Mitigation for **unauthorized devices**
+
+### **USBGuard IS NOT**:
+
+- Antivirus or malware scanner
+- Data Loss Prevention (DLP) tool
+- Complete USB security solution
+- Intrusion detection system
+- Forensic analysis tool
+- Network security control
+- Physical security control
