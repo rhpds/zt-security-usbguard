@@ -1,18 +1,59 @@
 Configure USBGuard
 
+Save this output for reference. These devices will need to be authorized in the policy.
 
-Step 3.1 - Create an initial rule set:
-[source,ini,role=execute,subs=attributes+]
-----
-usbguard generate-policy > /etc/usbguard/rules.conf
-----
+### 3.1 Generate Initial Policy
 
+USBGuard can generate an initial policy based on currently connected devices:
 
-Step 3.2 - Start The Service:
-Start the usbguard daemon and ensure that it starts automatically on boot
-[source,ini,role=execute,subs=attributes+]
-----
-systemctl enable --now usbguard
-----
+```bash
+sudo usbguard generate-policy > /tmp/initial-rules.conf
+cat /tmp/initial-rules.conf
+```
+
+**IMPORTANT**: Review this file carefully. It shows rules for all currently connected USB devices.
+
+### 3.2 Install the Initial Policy
+
+Copy the generated policy to the proper location:
+
+```bash
+sudo install -m 0600 -o root -g root /tmp/initial-rules.conf /etc/usbguard/rules.conf
+```
+
+Verify the file permissions:
+
+```bash
+ls -l /etc/usbguard/rules.conf
+```
+
+Should show: `-rw------- 1 root root`
+
+### 3.3 Start USBGuard Service
+
+Enable and start the USBGuard daemon:
+
+```bash
+sudo systemctl enable usbguard.service
+sudo systemctl start usbguard.service
+```
+
+### 3.4 Verify Service Status
+
+Check that the service is running:
+
+```bash
+sudo systemctl status usbguard.service
+```
+
+Look for "active (running)" status.
+
+### 3.5 Test Basic Functionality
+
+List currently authorized devices:
+
+```bash
+sudo usbguard list-devices
+```
 
 Now that we have it installed and configured, lets cover how to veriy it in the next section.
