@@ -7,10 +7,10 @@
 First, verify you're running RHEL 10:
 
 [source,ini,role=execute,subs=attributes+]
-```bash
+----
 cat /etc/redhat-release
 uname -r
-```
+----
 
 Expected output should show RHEL 10.
 
@@ -19,19 +19,19 @@ Expected output should show RHEL 10.
 Install USBGuard and related tools:
 
 [source,ini,role=execute,subs=attributes+]
-```bash
+----
 sudo dnf install -y usbguard usbguard-tools
-```
+----
 
 ### 2.3 Verify Installation
 
 Check the installed version:
 
 [source,ini,role=execute,subs=attributes+]
-```bash
+----
 rpm -qa | grep usbguard
 usbguard --version
-```
+----
 
 ### 2.4 Understand USBGuard Components
 
@@ -49,6 +49,6 @@ USBGuard consists of several key components:
 Before starting USBGuard, list currently connected USB devices:
 
 [source,ini,role=execute,subs=attributes+]
-```bash
+----
 lsusb
-```
+----
