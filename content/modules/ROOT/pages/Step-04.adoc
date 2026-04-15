@@ -49,7 +49,6 @@ The number at the start (1:, 2:) is the device ID used for runtime control.
 
 Connect a USB device (if available) and identify its attributes:
 
-[source,ini,role=execute,subs=attributes+]
 ----
 # Watch for new devices
 sudo usbguard watch
