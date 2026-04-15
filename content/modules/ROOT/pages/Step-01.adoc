@@ -25,7 +25,7 @@ By the end of this workshop, you will be able to:
 
 - **OS**: Red Hat Enterprise Linux 10
 - **Required Packages**: usbguard, usbguard-tools
-- **Time Required**: 90-120 minutes
+- **Time Required**: 10-15 minutes
 
 ## Workshop Structure
 
