@@ -13,12 +13,13 @@ sudo cat /etc/usbguard/rules.conf
 
 Let's break down a typical rule:
 
-[source,ini,role=execute,subs=attributes+]
+
 ----
 allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver" hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" parent-hash "rV6GDcfPhp0vLago4zlN1VWCOJh/zBvFe3r8CvLPk3c=" via-port "1-2"
 ----
 
 **Breaking it down**:
+
 - `allow` - This device is authorized
 - `id 046d:c52b` - Logitech vendor ID (046d), product ID (c52b)
 - `serial "1234ABCD"` - Unique serial number
