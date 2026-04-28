@@ -4,7 +4,7 @@
 
 USBGuard can generate an initial policy based on currently connected devices:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard generate-policy > /tmp/initial-rules.conf
 cat /tmp/initial-rules.conf
@@ -16,14 +16,14 @@ cat /tmp/initial-rules.conf
 
 Copy the generated policy to the proper location:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo install -m 0600 -o root -g root /tmp/initial-rules.conf /etc/usbguard/rules.conf
 ----
 
 Verify the file permissions:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 ls -l /etc/usbguard/rules.conf
 ----
@@ -34,7 +34,7 @@ Should show: `-rw------- 1 root root`
 
 Enable and start the USBGuard daemon:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo systemctl enable usbguard.service
 sudo systemctl start usbguard.service
@@ -44,7 +44,7 @@ sudo systemctl start usbguard.service
 
 Check that the service is running:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo systemctl status usbguard.service
 ----
@@ -55,7 +55,7 @@ Look for "active (running)" status.
 
 List currently authorized devices:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard list-devices
 ----
