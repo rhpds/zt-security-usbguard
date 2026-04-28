@@ -20,13 +20,13 @@ allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver" hash "jEP/6Wzv
 
 **Breaking it down**:
 
-- `allow` - This device is authorized
-- `id 046d:c52b` - Logitech vendor ID (046d), product ID (c52b)
-- `serial "1234ABCD"` - Unique serial number
-- `name "Logitech USB Receiver"` - Human-readable name
-- `hash` - Device descriptor hash (ensures exact device match)
-- `parent-hash` - Hash of the parent USB hub
-- `via-port "1-2"` - Connected to port 1-2
+* `allow` - This device is authorized
+* `id 046d:c52b` - Logitech vendor ID (046d), product ID (c52b)
+* `serial "1234ABCD"` - Unique serial number
+* `name "Logitech USB Receiver"` - Human-readable name
+* `hash` - Device descriptor hash (ensures exact device match)
+* `parent-hash` - Hash of the parent USB hub
+* `via-port "1-2"` - Connected to port 1-2
 
 ### 4.3 List Devices with Details
 
@@ -64,12 +64,12 @@ Press Ctrl+C to stop watching.
 USB devices have interface classes that define their type:
 
 Common interface types:
-- `03:00:01` - HID Keyboard
-- `03:00:02` - HID Mouse
-- `08:*:*` - Mass Storage
-- `09:00:00` - USB Hub
-- `0e:*:*` - Video devices
-- `ff:*:*` - Vendor Specific
+* `03:00:01` - HID Keyboard
+* `03:00:02` - HID Mouse
+* `08:*:*` - Mass Storage
+* `09:00:00` - USB Hub
+* `0e:*:*` - Video devices
+* `ff:*:*` - Vendor Specific
 
 View interfaces:
 
