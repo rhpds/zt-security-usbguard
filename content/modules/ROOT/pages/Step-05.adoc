@@ -92,6 +92,8 @@ Check status:
 sudo systemctl status usbguard.service
 ----
 
+You may have to close out of the status with a "Ctrl+c" .
+
 ### 5.6 Test the Policy
 
 Check which devices are currently allowed:
