@@ -32,14 +32,3 @@ Check the installed version:
 rpm -qa | grep usbguard
 usbguard --version
 ----
-
-### 2.4 Understand USBGuard Components
-
-USBGuard consists of several key components:
-
-- **usbguard-daemon**: The main service that enforces USB policies
-- **usbguard**: CLI tool for managing the daemon
-- **usbguard-applet-qt**: GUI application (optional)
-- **Configuration Files**:
-  - `/etc/usbguard/usbguard-daemon.conf` - Daemon configuration
-  - `/etc/usbguard/rules.conf` - Policy rules
