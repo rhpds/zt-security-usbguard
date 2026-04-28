@@ -1,1 +1,12 @@
-Resources for USBGuard
+## Review & Resources for USBGuard
+
+
+
+## Resources
+
+Official Red Hat Documentation
+These are your "source of truth" links for installation and daemon configuration:
+
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/security_hardening/protecting-systems-against-intrusive-usb-devices[RHEL 10 Security Hardening Guide:] This is the comprehensive PDF/HTML manual. Search for the "Scanning and Remediating the System" section, which typically covers usbguard.
+
+https://access.redhat.com/[Red Hat Customer Portal] - USBGuard Solutions: (Search "USBGuard RHEL 10") This portal contains "Knowledgebase" articles that explain specific edge cases, such as how to handle USB hubs or integrated webcams that might be blocked by default.
