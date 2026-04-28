@@ -4,7 +4,7 @@
 
 Examine your current policy:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo cat /etc/usbguard/rules.conf
 ----
@@ -32,7 +32,7 @@ allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver" hash "jEP/6Wzv
 
 View all connected devices with full attributes:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard list-devices
 ----
@@ -73,7 +73,7 @@ Common interface types:
 
 View interfaces:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard list-devices | grep -A 5 "with-interface"
 ----
@@ -104,7 +104,7 @@ block with-interface 08:*:*
 
 Create a rule manually for a keyboard:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 # Allow any HID keyboard
 echo 'allow with-interface 03:00:01' | sudo tee -a /etc/usbguard/rules.conf
@@ -114,7 +114,7 @@ echo 'allow with-interface 03:00:01' | sudo tee -a /etc/usbguard/rules.conf
 
 Check if your rules file is valid:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard read-descriptor --file /etc/usbguard/rules.conf
 ----
