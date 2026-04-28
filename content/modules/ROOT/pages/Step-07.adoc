@@ -1,1 +1,16 @@
 Real World Examples of USBGuard
+
+
+# 1. Allow your specific Logitech Keyboard via VID:PID
+allow id 046d:c31c
+
+# 2. Explicitly reject known "Bad USB" tools (Optional but good for logging)
+# Flipper Zero VID:PID is 0483:5740
+reject id 0483:5740 
+
+# Hak5 USB Rubber Ducky (standard) is 1eaf:0030
+reject id 1eaf:0030
+
+# 3. Implicitly deny everything else 
+# (Note: Ensure your keyboard rule is ABOVE this)
+block
