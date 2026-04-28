@@ -20,30 +20,46 @@ sudo cat /etc/usbguard/usbguard-daemon.conf
 
 Key settings to understand:
 
-- **RuleFile**: Location of rules file
-- **ImplicitPolicyTarget**: What to do with devices that don't match any rule
-  - `allow` - Allow by default (permissive)
-  - `block` - Block by default (recommended)
-  - `reject` - Reject by default (strict)
-- **PresentDevicePolicy**: How to handle devices present when daemon starts
-  - `allow` - Allow all present devices
-  - `keep` - Keep current authorization state
-  - `reject` - Reject all devices
-  - `apply-policy` - Apply rules to existing devices
+RuleFile::
+Location of rules file
+
+ImplicitPolicyTarget::
+What to do with devices that don't match any rule
+* `allow` - Allow by default (permissive)
+* `block` - Block by default (recommended)
+* `reject` - Reject by default (strict)
+
+PresentDevicePolicy::
+How to handle devices present when daemon starts
+* `allow` - Allow all present devices
+* `keep` - Keep current authorization state
+* `reject` - Reject all devices
+* `apply-policy` - Apply rules to existing devices
 
 ### 5.3 Create a Restrictive Policy
 
 Let's create a policy that:
-- Allows built-in USB controllers
-- Allows keyboards and mice
-- Blocks mass storage devices
-- Blocks all other devices
+* Allows built-in USB controllers
+* Allows keyboards and mice
+* Blocks mass storage devices
+* Blocks all other devices
+
+USB devices have interface classes that define their type:
+
+Common interface types:
+
+* `03:00:01` - HID Keyboard
+* `03:00:02` - HID Mouse
+* `08:*:*` - Mass Storage
+* `09:00:00` - USB Hub
+* `0e:*:*` - Video devices
+* `ff:*:*` - Vendor Specific
 
 [source,bash,role="execute",subs=attributes+]
 ----
 sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
 allow with-interface 09:00:00
-allow with-interface 03:00:00
+allow with-interface 03:00:*
 block with-interface 08:*:*
 block
 EOF
