@@ -83,7 +83,7 @@ sudo usbguard list-devices | grep -A 5 "with-interface"
 
 Rules are evaluated **top to bottom**. The first matching rule wins.
 
-Example:
+As an Example:
 ```
 # This blocks ALL USB storage devices
 block with-interface 08:*:*
@@ -117,7 +117,7 @@ Check if your rules file is valid:
 
 [source,bash,role="execute",subs=attributes+]
 ----
-sudo usbguard read-descriptor --file /etc/usbguard/rules.conf
+sudo usbguard read-descriptor /etc/usbguard/rules.conf
 ----
 
 If there are syntax errors, you'll see error messages.
