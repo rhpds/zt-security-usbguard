@@ -32,3 +32,6 @@ Check the installed version:
 rpm -qa | grep usbguard
 usbguard --version
 ----
+
+To Move to the next step, click the "Next" button.
+
