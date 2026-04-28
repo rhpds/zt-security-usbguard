@@ -4,7 +4,19 @@
 
 This hands-on lab introduces USBGuard, a software framework for implementing USB device authorization policies on Linux systems. Learn to protect your RHEL 10 systems from unauthorized USB devices and potential security threats.
 
-## Learning Objectives
+## Understanding USBGuard Components
+
+USBGuard consists of several key components:
+
+* **usbguard-daemon**: The main service that enforces USB policies
+* **usbguard**: CLI tool for managing the daemon
+* **usbguard-applet-qt**: GUI application (optional)
+* **Configuration Files**:
+  * `/etc/usbguard/usbguard-daemon.conf` - Daemon configuration
+  * `/etc/usbguard/rules.conf` - Policy rules
+
+
+## What you will learn
 
 By the end of this workshop, you will be able to:
 
@@ -14,13 +26,6 @@ By the end of this workshop, you will be able to:
 * Use USBGuard CLI tools to control device access
 * Implement security policies for enterprise environments
 * Troubleshoot common USBGuard issues
-
-## Prerequisites
-
-- Red Hat Enterprise Linux 10 system (physical or virtual)
-- Root or sudo access
-- Basic Linux command-line knowledge
-- At least one USB device for testing
 
 
 ## Lab Environnement
