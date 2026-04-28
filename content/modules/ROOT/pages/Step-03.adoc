@@ -32,11 +32,17 @@ Should show: `-rw------- 1 root root`
 
 ### 3.3 Start USBGuard Service
 
-Enable and start the USBGuard daemon:
+Enable the USBGuard daemon:
 
 [source,bash,role="execute",subs=attributes+]
 ----
 sudo systemctl enable usbguard.service
+----
+
+Start the USBGuard daemon:
+
+[source,bash,role="execute",subs=attributes+]
+----
 sudo systemctl start usbguard.service
 ----
 
