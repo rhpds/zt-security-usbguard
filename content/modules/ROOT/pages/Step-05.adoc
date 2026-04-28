@@ -55,6 +55,7 @@ allow with-interface 03:00:02 with-interface 03:01:02
 block with-interface 08:*:*
 
 # Block everything else (implicit)
+block
 EOF
 ----
 
