@@ -42,19 +42,9 @@ Let's create a policy that:
 [source,bash,role="execute",subs=attributes+]
 ----
 sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
-# Allow USB hubs (needed for proper USB operation)
 allow with-interface 09:00:00
-
-# Allow HID keyboards
-allow with-interface 03:00:01
-
-# Allow HID mice and pointing devices
-allow with-interface 03:00:02 with-interface 03:01:02
-
-# Block USB mass storage devices
+allow with-interface 03:00:00
 block with-interface 08:*:*
-
-# Block everything else (implicit)
 block
 EOF
 ----
