@@ -57,6 +57,8 @@ sudo systemctl status usbguard.service
 
 Look for "active (running)" status.
 
+You might have to close out of the terminal with "Ctrl+c".
+
 ### 3.5 Test Basic Functionality
 
 List currently authorized devices:
