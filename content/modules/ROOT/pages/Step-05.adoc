@@ -4,7 +4,7 @@
 
 Always backup before making changes:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo cp /etc/usbguard/rules.conf /etc/usbguard/rules.conf.backup
 ----
@@ -13,7 +13,7 @@ sudo cp /etc/usbguard/rules.conf /etc/usbguard/rules.conf.backup
 
 View the daemon configuration:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo cat /etc/usbguard/usbguard-daemon.conf
 ----
@@ -35,7 +35,7 @@ Key settings to understand:
 
 Edit the daemon configuration:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo vi /etc/usbguard/usbguard-daemon.conf
 ----
@@ -59,7 +59,7 @@ Let's create a policy that:
 - Blocks mass storage devices
 - Blocks all other devices
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
 # Allow USB hubs (needed for proper USB operation)
@@ -82,7 +82,7 @@ EOF
 
 Before applying, validate syntax:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard read-descriptor --file /etc/usbguard/rules.conf
 ----
@@ -93,14 +93,14 @@ If no errors, the file is valid.
 
 Apply the new policy:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo systemctl restart usbguard.service
 ----
 
 Check status:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo systemctl status usbguard.service
 ----
@@ -109,7 +109,7 @@ sudo systemctl status usbguard.service
 
 Check which devices are currently allowed:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard list-devices
 ----
@@ -126,14 +126,14 @@ If you have a USB flash drive:
 1. Insert the USB drive
 2. Check its status:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard list-devices
 ----
 
 You should see it blocked (not authorized).
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 # Check system messages
 sudo dmesg | tail -20
@@ -145,7 +145,7 @@ The device should be detected but not authorized for use.
 
 Now let's create a strict allow-list policy (only specific devices allowed):
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
 # Allow USB controllers
@@ -166,7 +166,7 @@ EOF
 
 For each trusted device currently connected:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 # List devices
 sudo usbguard list-devices
@@ -177,7 +177,7 @@ sudo usbguard list-devices | grep "allow id" | sudo tee -a /etc/usbguard/rules.c
 
 Review the file:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo cat /etc/usbguard/rules.conf
 ----
@@ -186,14 +186,14 @@ sudo cat /etc/usbguard/rules.conf
 
 Restart the service:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo systemctl restart usbguard.service
 ----
 
 Try connecting a new USB device (one not in the allow-list):
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo usbguard list-devices
 ----
@@ -204,7 +204,7 @@ It should be blocked.
 
 Create a policy that restricts devices based on physical ports:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
 # Allow controllers
