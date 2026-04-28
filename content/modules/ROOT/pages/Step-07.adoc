@@ -38,19 +38,19 @@ Standard Antivirus (AV) software looks for malicious code on a disk. However, a 
 
 * **Hardware Blockers:** Use "USB Data Blockers" when charging in public ports; these physically disconnect the data pins and only allow power to flow.
 
+You will have to verify what is plugged into your machine, and not just accecpt that what is plugged in is trusted.
+
+* Logitech Keyboard via VID:PID which is 046d:c31c
+* Flipper Zero VID:PID is 0483:5740
+* Hak5 USB Rubber Ducky (standard) VID:PID is 1eaf:0030
+* OMG Cable VID:PID is d3c0:d34d
+
 Example output:
 ```
-# 1. Allow your specific Logitech Keyboard via VID:PID
 allow id 046d:c31c
-
-# 2. Explicitly reject known "Bad USB" tools (Optional but good for logging)
-# Flipper Zero VID:PID is 0483:5740
 reject id 0483:5740 
-
-# Hak5 USB Rubber Ducky (standard) is 1eaf:0030
 reject id 1eaf:0030
-
-# 3. Implicitly deny everything else 
-# (Note: Ensure your keyboard rule is ABOVE this)
+reject is d3c0:d34d
 block
 ```
+Now that we have learned about some devices we have to watch for, lets wrap up this lab, click the next button.
