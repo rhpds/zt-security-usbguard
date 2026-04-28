@@ -6,7 +6,7 @@
 
 First, verify you're running RHEL 10:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 cat /etc/redhat-release
 uname -r
@@ -18,7 +18,7 @@ Expected output should show RHEL 10.
 
 Install USBGuard and related tools:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 sudo dnf install -y usbguard usbguard-tools
 ----
@@ -27,7 +27,7 @@ sudo dnf install -y usbguard usbguard-tools
 
 Check the installed version:
 
-[source,ini,role=execute,subs=attributes+]
+[source,bash,role="execute",subs=attributes+]
 ----
 rpm -qa | grep usbguard
 usbguard --version
