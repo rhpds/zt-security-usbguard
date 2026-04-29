@@ -4,7 +4,7 @@ A BadUSB is a security exploit that turns a simple USB device—like a thumb dri
 
 Unlike a traditional "infected" USB drive that contains a virus file (which an antivirus can scan), a BadUSB device tricks your computer into thinking it is something else entirely, most commonly a keyboard.
 
-## How It Works: The HID Attack
+## 7.1 How It Works: The HID Attack
 
 The most common form of BadUSB is a Human Interface Device (HID) attack. Here is the breakdown of why it is so effective:
 
@@ -26,11 +26,11 @@ While attackers can repurpose generic USB controllers, several well-known tools 
 
 * **Malicious Cables (e.g., O.MG Cable):** These look like standard Lightning or USB-C charging cables but contain a hidden Wi-Fi chip and microcontroller that allows a hacker to trigger keyboard commands remotely over the air.
 
-## Why Antivirus Can't Stop It
+## 7.2 Why Antivirus Can't Stop It
 
 Standard Antivirus (AV) software looks for malicious code on a disk. However, a BadUSB device doesn't necessarily "store" a file on the computer. It simply "types" commands. To the computer, it looks like the user is just typing very quickly.
 
-## How to Protect Yourself
+## 7.3 How to Protect Yourself
 
 * **Physical Security:** Never plug in a USB drive you found in a parking lot or received as a "free gift" from an untrusted source.
 
