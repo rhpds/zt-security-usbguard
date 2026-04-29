@@ -30,6 +30,15 @@ By the end of this workshop, you will be able to:
 
 ## Lab Environnement
 
+As part of this lab you will have access to 1 machine.
+
+* rhel
+
+You will have a couple of accounts you will have access to.
+
+* rhel
+* root
+
 You can use these credentials to login to the `cockpit` web ui.
 
 Username:
@@ -44,10 +53,6 @@ Password:
 {bastion_ssh_password}
 ----
 
-Enjoy your USBGuard lab time, the system will disconnect after about
-60 minutes.
-
-With the intro to USBGuard out of the way, lets head to the next step.
 
 **Lab Note:** If Using Red Hat Demo System (RHPDS)
 The terminal window to your right is already logged into the lab environment as the lab-user user via ssh. All steps of this lab are to be completed as the lab-user user on the bastion server.
@@ -60,5 +65,8 @@ You should also be able to click the terminal icon and the command is then auto 
 Alternatively, 
 
 You should be able to click the clipboard icon in the code box to copy the command, and you will either use the middle mouse button or right click and paste. The keyboard shortcuts for copy and paste (ctrl+c and ctrl+v) wont’t work in this.
+
+Enjoy your USBGuard lab time, the system will disconnect after about
+60 minutes.
 
 To Move to the next step, click the "Next" button.
