@@ -45,7 +45,7 @@ Example output:
 
 The number at the start (1:, 2:) is the device ID used for runtime control.
 
-### 4.4 Device Attribute Exercise
+### 4.4 Device Attribute Exercise (Optional)
 
 Connect a USB device (if available) and identify its attributes:
 
