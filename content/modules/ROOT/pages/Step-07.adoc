@@ -79,6 +79,13 @@ Apply the new policy:
 sudo systemctl restart usbguard.service
 ----
 
+Review the file:
+
+[source,bash,role="execute",subs=attributes+]
+----
+sudo cat /etc/usbguard/rules.conf
+----
+
 Check which devices are currently allowed:
 
 [source,bash,role="execute",subs=attributes+]
