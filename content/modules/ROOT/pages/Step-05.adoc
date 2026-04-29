@@ -137,7 +137,7 @@ The device should be detected but not authorized for use.
 
 ### 5.8 Create an Allow-List Policy
 
-Now let's create a strict allow-list policy (only specific devices allowed):
+Now let's create a strict allow-list policy (specific devices allowed):
 
 * Allow USB controllers
 * Generate and add specific allow rules for your trusted devices
@@ -156,24 +156,7 @@ block
 EOF
 ----
 
-### 5.9 Add Specific Devices to Allow-List
-
-For each trusted device currently connected:
-
-List devices
-[source,bash,role="execute",subs=attributes+]
-----
-sudo usbguard list-devices
-----
-
-Review the file:
-
-[source,bash,role="execute",subs=attributes+]
-----
-sudo cat /etc/usbguard/rules.conf
-----
-
-### 5.10 Test the Allow-List Policy
+### 5.9 Test the Allow-List Policy
 
 Restart the service:
 
@@ -191,7 +174,7 @@ sudo usbguard list-devices
 
 It should be blocked.
 
-### 5.11 Policy for Specific Ports
+### 5.10 Policy for Specific Ports
 
 Create a policy that restricts devices based on physical ports:
 
