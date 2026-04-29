@@ -1,8 +1,6 @@
-== Installing the USBGuard packages
+== Step 2 Installing the USBGuard packages
 
-## Step 2
-
-### 2.1 Check System Information
+## 2.1 Check System Information
 
 First, verify you're running RHEL 10:
 
@@ -14,7 +12,7 @@ uname -r
 
 Expected output should show RHEL 10.
 
-### 2.2 Install USBGuard
+## 2.2 Install USBGuard
 
 Install USBGuard and related tools:
 
@@ -23,7 +21,7 @@ Install USBGuard and related tools:
 sudo dnf install -y usbguard usbguard-tools
 ----
 
-### 2.3 Verify Installation
+## 2.3 Verify Installation
 
 Check the installed version:
 
