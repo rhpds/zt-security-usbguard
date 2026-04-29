@@ -141,12 +141,15 @@ Layer USBGuard with other security controls:
 
 ### Regular Policy Review
 
+Review what devices have been blocked
 [source,bash,role="execute",subs=attributes+]
 ----
-# Review what devices have been blocked
 sudo journalctl -u usbguard -n 100 | grep -i block
+----
 
-# Audit current allowed devices
+Audit current allowed devices
+[source,bash,role="execute",subs=attributes+]
+----
 sudo usbguard list-devices
 ----
 
@@ -154,13 +157,13 @@ sudo usbguard list-devices
 
 Always test new policies in a non-production environment:
 
+* Backup current policy
+* Test new policy
+* If something breaks, restore the backup
+
 [source,bash,role="execute",subs=attributes+]
 ----
-# Backup current policy
 sudo cp /etc/usbguard/rules.conf /etc/usbguard/rules.conf.backup
-
-# Test new policy
-# If something breaks, restore the backup
 ----
 
 ## Understanding the Security Model
