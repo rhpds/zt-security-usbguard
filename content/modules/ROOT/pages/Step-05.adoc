@@ -148,8 +148,11 @@ Now let's create a strict allow-list policy (only specific devices allowed):
 [source,bash,role="execute",subs=attributes+]
 ----
 sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
-allow with-interface 09:00:00
 allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver"
+allow with-interface 09:00:00
+allow with-interface 03:00:*
+block with-interface 08:*:*
+block
 EOF
 ----
 
