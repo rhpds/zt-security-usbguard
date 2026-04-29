@@ -39,6 +39,7 @@ How to handle devices present when daemon starts
 ### 5.3 Create a Restrictive Policy
 
 Let's create a policy that:
+
 * Allows built-in USB controllers
 * Allows keyboards and mice
 * Blocks mass storage devices
