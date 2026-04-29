@@ -46,8 +46,9 @@ You will have to verify what is plugged into your machine, and not just accecpt 
 * OMG Cable VID:PID is d3c0:d34d
 
 Example output adding the blocking for these devices:
+
 [source,bash,role="execute",subs=attributes+]
-```
+----
 sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
 allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver"
 allow id 046d:c31c
@@ -59,7 +60,7 @@ allow with-interface 03:00:*
 block with-interface 08:*:*
 block
 EOF
-```
+----
 
 Before applying, validate syntax:
 
