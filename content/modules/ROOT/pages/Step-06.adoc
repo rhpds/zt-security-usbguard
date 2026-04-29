@@ -33,7 +33,6 @@ Understanding these limitations helps you deploy USBGuard effectively and avoid 
 If an attacker knows the exact hardware ID, serial number, and other attributes of an authorized device, they can create a clone that USBGuard will accept.
 
 **Example:**
-[source,bash]
 ----
 # Your allowed device
 allow id 0781:5583 serial "ABC123" name "SanDisk USB"
