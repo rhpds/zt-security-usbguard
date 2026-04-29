@@ -157,15 +157,15 @@ EOF
 
 For each trusted device currently connected:
 
+List devices
 [source,bash,role="execute",subs=attributes+]
 ----
-# List devices
 sudo usbguard list-devices
 ----
 
+For each trusted device, append its rule
 [source,bash,role="execute",subs=attributes+]
 ----
-# For each trusted device, append its rule
 sudo usbguard list-devices | grep "allow id" | sudo tee -a /etc/usbguard/rules.conf
 ----
 
