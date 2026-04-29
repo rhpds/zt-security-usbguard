@@ -163,12 +163,6 @@ List devices
 sudo usbguard list-devices
 ----
 
-For each trusted device, append its rule
-[source,bash,role="execute",subs=attributes+]
-----
-sudo usbguard list-devices | grep "allow id" | sudo tee -a /etc/usbguard/rules.conf
-----
-
 Review the file:
 
 [source,bash,role="execute",subs=attributes+]
