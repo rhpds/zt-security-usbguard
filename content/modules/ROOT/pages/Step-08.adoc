@@ -1,4 +1,4 @@
-## Review & Resources for USBGuard
+# Step 8 Review & Resources for USBGuard
 
 This lab taught you how to use USBGuard to control which USB devices can connect to your RHEL 10 system. You learned how to move from trusting all USB devices to only allowing devices you approve.
 
