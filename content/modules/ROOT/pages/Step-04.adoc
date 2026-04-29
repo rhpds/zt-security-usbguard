@@ -101,11 +101,11 @@ block with-interface 08:*:*
 
 ### 4.7 Practice: Create a Simple Rule
 
-Create a rule manually for a keyboard:
+Create a rule manually for a keyboard, 
+(Allow any HID keyboard): 
 
 [source,bash,role="execute",subs=attributes+]
 ----
-# Allow any HID keyboard
 echo 'allow with-interface 03:00:01' | sudo tee -a /etc/usbguard/rules.conf
 ----
 
