@@ -1,0 +1,33 @@
+== Welcome to Enabling RHEL Security for USBGuard
+
+= Are You Ready to Elevate Your Red Hat Enterprise Linux Security Skills?
+
+In an era where cyber threats are increasingly sophisticated, securing Red Hat Enterprise Linux (RHEL) systems has never been more critical. In this lab, we'll explore three RHEL native tools that can transform your approach to security and safeguard your digital assets:
+
+. **USBGuard** a software framework for implementing USB device authorization policies on Linux systems. 
+
+USB ports are often overlooked in security, but they’re a major risk. An attacker with a $50 device can bypass expensive security systems in seconds just by plugging into your computer.
+
+=== You will learn how to:
+
+Users will leave with practical knowledge on how to install, configure, and manage these security tools, enabling them to apply what they have learned in real-world scenarios.
+
+=== Getting Started
+
+* Follow the Documentation to do this on your own linux machine inside of a VM.
+
+=== How to Follow along with the lab.
+
+* https://github.com/rhpds/zt-security-usbguard/blob/main/content/modules/ROOT/pages/Step-01.adoc[Step 1 - USBGuard Intro]
+* https://github.com/rhpds/zt-security-usbguard/blob/main/content/modules/ROOT/pages/Step-02.adoc[Step 2 - Installing the USBGuard packages]
+* https://github.com/rhpds/zt-security-usbguard/blob/main/content/modules/ROOT/pages/Step-03.adoc[Step 3 - Configure USBGuard]
+* https://github.com/rhpds/zt-security-usbguard/blob/main/content/modules/ROOT/pages/Step-04.adoc[Step 4 - USBGuard Rules and Policy]
+* https://github.com/rhpds/zt-security-usbguard/blob/main/content/modules/ROOT/pages/Step-05.adoc[Step 5 - USBGuard Policy Creation and Management]
+* https://github.com/rhpds/zt-security-usbguard/blob/main/content/modules/ROOT/pages/Step-06.adoc[Step 6 - Understanding USBGuard Capabilities and Limitations]
+* https://github.com/rhpds/zt-security-usbguard/blob/main/content/modules/ROOT/pages/Step-07.adoc[Step 7 - Real World Examples of USBGuard]
+* https://github.com/rhpds/zt-security-usbguard/blob/main/content/modules/ROOT/pages/Step-08.adoc[Step 8 - Review & Resources for USBGuard]
+
+=== Speaker Information:
+
+* Joshua Loscar 
+** Senior Technical Account Manager, Red Hat
