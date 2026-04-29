@@ -107,9 +107,10 @@ sudo usbguard list-devices
 ----
 
 You should see:
-- USB controllers and hubs: `allow`
-- Keyboards and mice: `allow`
-- Mass storage devices: `block`
+
+* USB controllers and hubs: `allow`
+* Keyboards and mice: `allow`
+* Mass storage devices: `block`
 
 ### 5.7 Test with a USB Device (optional)
 
