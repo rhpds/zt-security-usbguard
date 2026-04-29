@@ -1,4 +1,4 @@
-# Understanding USBGuard Capabilities and Limitations
+# Step 6 Understanding USBGuard Capabilities and Limitations
 
 ## 6.1 What USBGuard Is and Isn’t
 
