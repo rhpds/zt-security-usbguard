@@ -1,6 +1,6 @@
 # Understanding USBGuard Capabilities and Limitations
 
-## What USBGuard Is and Isn’t
+## 6.1 What USBGuard Is and Isn’t
 
 Before deploying USBGuard in production, it’s critical to understand both its strengths and limitations. USBGuard is a powerful tool, but it’s not a complete security solution.
 
@@ -22,11 +22,11 @@ Before deploying USBGuard in production, it’s critical to understand both its 
 * **Network Security Control** - Only manages USB devices, not network connections
 * **Physical Security Control** - Cannot prevent someone from physically accessing USB ports
 
-## Key Limitations of USBGuard
+## 6.2 Key Limitations of USBGuard
 
 Understanding these limitations helps you deploy USBGuard effectively and avoid false confidence in your security posture.
 
-### 1. Cloned or Spoofed Devices
+### 6.2.1 Cloned or Spoofed Devices
 
 **The Problem:**
 
@@ -44,7 +44,7 @@ If an attacker knows the exact hardware ID, serial number, and other attributes 
 * Implement port-based restrictions for sensitive systems
 * Monitor audit logs for unexpected device connections
 
-### 2. Vendor-Specific Drivers and Features
+### 6.2.2 Vendor-Specific Drivers and Features
 
 **The Problem:**
 
@@ -61,7 +61,7 @@ A USB device might identify as a simple HID keyboard but have vendor-specific fi
 * Use SELinux to further restrict device capabilities
 * Keep device firmware updated through controlled channels
 
-### 3. Keyboards Without Unique Serial Numbers
+### 6.2.3 Keyboards Without Unique Serial Numbers
 
 **The Problem:**
 
@@ -88,7 +88,7 @@ The empty serial (`serial ""`) means any keyboard with that vendor/product ID wi
 * Accept that keyboard rules may be less specific than other devices
 * Consider purchasing enterprise keyboards with unique identifiers
 
-### 4. Device Authorization vs. Data Transfer Control
+### 6.2.4 Device Authorization vs. Data Transfer Control
 
 **The Problem:**
 
@@ -105,7 +105,7 @@ If you allow a USB flash drive, USBGuard cannot prevent a user from copying sens
 * Implement audit logging for file access
 * Consider blocking mass storage entirely for high-security environments
 
-### 5. Internal USB Devices
+### 6.2.5 Internal USB Devices
 
 **The Problem:**
 
@@ -127,7 +127,7 @@ You’ll need to allow built-in devices in your policy.
 * Document all internal USB devices in your environment
 * Use specific device IDs rather than broad interface-based rules
 
-## Best Practices for Working Within Limitations
+## 6.3 Best Practices for Working Within Limitations
 
 ### Defense in Depth
 
@@ -166,7 +166,7 @@ Always test new policies in a non-production environment:
 sudo cp /etc/usbguard/rules.conf /etc/usbguard/rules.conf.backup
 ----
 
-## Understanding the Security Model
+## 6.4 Understanding the Security Model
 
 USBGuard operates on the principle of **device identity verification**, not behavior analysis. It answers the question "Is this a known device?" not "Is this device behaving safely?"
 
@@ -179,7 +179,7 @@ This means:
 * ✗ Cannot prevent data theft from authorized devices
 * ✗ Cannot scan for malware on USB storage
 
-## When USBGuard Is Most Effective
+## 6.5 When USBGuard Is Most Effective
 
 USBGuard provides the best protection in these scenarios:
 
