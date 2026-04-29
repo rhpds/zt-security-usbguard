@@ -1,4 +1,4 @@
-# USBGuard Policy Creation and Management
+# Step 5 USBGuard Policy Creation and Management
 
 ### 5.1 Backup Current Policy
 
