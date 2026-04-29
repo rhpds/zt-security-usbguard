@@ -25,12 +25,14 @@ Location of rules file
 
 ImplicitPolicyTarget::
 What to do with devices that don't match any rule
+
 * `allow` - Allow by default (permissive)
 * `block` - Block by default (recommended)
 * `reject` - Reject by default (strict)
 
 PresentDevicePolicy::
 How to handle devices present when daemon starts
+
 * `allow` - Allow all present devices
 * `keep` - Keep current authorization state
 * `reject` - Reject all devices
