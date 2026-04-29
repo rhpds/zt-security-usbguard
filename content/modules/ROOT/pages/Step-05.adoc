@@ -161,7 +161,10 @@ For each trusted device currently connected:
 ----
 # List devices
 sudo usbguard list-devices
+----
 
+[source,bash,role="execute",subs=attributes+]
+----
 # For each trusted device, append its rule
 sudo usbguard list-devices | grep "allow id" | sudo tee -a /etc/usbguard/rules.conf
 ----
