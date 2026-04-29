@@ -133,13 +133,11 @@ You’ll need to allow built-in devices in your policy.
 
 Layer USBGuard with other security controls:
 
-[source,bash]
-----
-# USBGuard controls device authorization
-# SELinux controls what authorized devices can do
-# Audit logs track device usage
-# DLP prevents data exfiltration
-----
+* USBGuard controls device authorization
+* SELinux controls what authorized devices can do
+* Audit logs track device usage
+* DLP prevents data exfiltration
+
 
 ### Regular Policy Review
 
