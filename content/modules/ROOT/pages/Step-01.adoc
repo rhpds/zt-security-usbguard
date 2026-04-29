@@ -1,4 +1,4 @@
-# USBGuard Workshop Lab - RHEL 10
+# Step 1 USBGuard Intro
 
 ## Workshop Overview
 
