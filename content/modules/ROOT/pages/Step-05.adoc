@@ -136,20 +136,17 @@ The device should be detected but not authorized for use.
 
 Now let's create a strict allow-list policy (only specific devices allowed):
 
+* Allow USB controllers
+* Generate and add specific allow rules for your trusted devices
+* Copy the rules for your keyboard, mouse, and other trusted devices here
+* And we will add an allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver"
+* Block everything else by default (implicit with ImplicitPolicyTarget=block)
+
 [source,bash,role="execute",subs=attributes+]
 ----
 sudo tee /etc/usbguard/rules.conf > /dev/null <<'EOF'
-# Allow USB controllers
 allow with-interface 09:00:00
-
-# Generate and add specific allow rules for your trusted devices
-# Use: sudo usbguard list-devices
-# Copy the rules for your keyboard, mouse, and other trusted devices here
-
-# Example (replace with your actual device details):
-# allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver"
-
-# Block everything else by default (implicit with ImplicitPolicyTarget=block)
+allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver"
 EOF
 ----
 
