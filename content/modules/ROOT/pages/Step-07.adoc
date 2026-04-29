@@ -79,4 +79,11 @@ Apply the new policy:
 sudo systemctl restart usbguard.service
 ----
 
+Check which devices are currently allowed:
+
+[source,bash,role="execute",subs=attributes+]
+----
+sudo usbguard list-devices
+----
+
 Now that we have learned about some devices we have to watch for, lets wrap up this lab, click the next button.
