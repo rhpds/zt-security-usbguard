@@ -50,11 +50,7 @@ The number at the start (1:, 2:) is the device ID used for runtime control.
 Connect a USB device (if available) and identify its attributes:
 
 ```
-# Watch for new devices
 sudo usbguard watch
-
-# In another terminal, connect a USB device
-# Observe the output
 ```
 
 Press Ctrl+C to stop watching.
