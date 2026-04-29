@@ -1,4 +1,4 @@
-# Real World Examples of USBGuard
+# Step 7 Real World Examples of USBGuard
 
 A BadUSB is a security exploit that turns a simple USB device—like a thumb drive, a charging cable, or even a specialized tool like a Flipper Zero—into a malicious tool by attacking the firmware rather than the stored data.
 
