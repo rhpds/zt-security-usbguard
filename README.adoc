@@ -2,7 +2,7 @@
 
 = Are You Ready to Elevate Your Red Hat Enterprise Linux Security Skills?
 
-In an era where cyber threats are increasingly sophisticated, securing Red Hat Enterprise Linux (RHEL) systems has never been more critical. In this lab, we'll explore three RHEL native tools that can transform your approach to security and safeguard your digital assets:
+In an era where cyber threats are increasingly sophisticated, securing Red Hat Enterprise Linux (RHEL) systems has never been more critical. In this lab, we'll explore RHEL native tools that can transform your approach to security and safeguard your digital assets:
 
 . **USBGuard** a software framework for implementing USB device authorization policies on Linux systems. 
 
