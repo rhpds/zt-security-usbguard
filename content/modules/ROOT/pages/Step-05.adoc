@@ -109,9 +109,10 @@ You should see:
 - Keyboards and mice: `allow`
 - Mass storage devices: `block`
 
-### 5.7 Test with a USB Device
+### 5.7 Test with a USB Device (optional)
 
-If you have a USB flash drive:
+If you are doing this online, you will not have a thumb drive to plug in.
+If you doing in your own homelab & you have a USB flash drive:
 
 1. Insert the USB drive
 2. Check its status:
