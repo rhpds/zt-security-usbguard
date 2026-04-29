@@ -13,7 +13,6 @@ sudo cat /etc/usbguard/rules.conf
 
 Let's break down a typical rule:
 
-
 ```
 allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver" hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" parent-hash "rV6GDcfPhp0vLago4zlN1VWCOJh/zBvFe3r8CvLPk3c=" via-port "1-2"
 ```
@@ -38,6 +37,7 @@ sudo usbguard list-devices
 ----
 
 Example output:
+
 ```
 1: allow id 1d6b:0002 serial "0000:00:14.0" name "xHCI Host Controller" hash "jEP/6Wzv..." parent-hash "rV6GDc..." via-port "usb1"
 2: allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver" hash "abc123..." parent-hash "xyz789..." via-port "1-2"
@@ -80,6 +80,7 @@ sudo usbguard list-devices | grep -A 5 "with-interface"
 Rules are evaluated **top to bottom**. The first matching rule wins.
 
 As an Example:
+
 ```
 # This blocks ALL USB storage devices
 block with-interface 08:*:*
@@ -89,6 +90,7 @@ allow id 0781:5583 serial "ABC123"
 ```
 
 **Correct order**:
+
 ```
 # Allow specific USB drive first
 allow id 0781:5583 serial "ABC123"
