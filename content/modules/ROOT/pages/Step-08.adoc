@@ -34,6 +34,7 @@ USBGuard reads your rules from first to last and uses the first match. Put your 
 **5. USBGuard Has Limits**
 
 USBGuard controls what devices connect, but it doesn't:
+
 * Scan for viruses
 * Prevent data theft after a device is allowed
 * Detect if a trusted device has been hacked
@@ -49,6 +50,7 @@ Always use USBGuard with other security tools.
 **7. Know the Bad Guys**
 
 Common attack tools to block:
+
 * USB Rubber Ducky: `1eaf:0030`
 * Flipper Zero: `0483:5740`
 * O.MG Cable: `d3c0:d34d`
