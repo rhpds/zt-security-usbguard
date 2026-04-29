@@ -45,7 +45,7 @@ You will have to verify what is plugged into your machine, and not just accecpt 
 * Hak5 USB Rubber Ducky (standard) VID:PID is 1eaf:0030
 * OMG Cable VID:PID is d3c0:d34d
 
-Example output adding the blocking for these devices:
+7.4.1 Example output adding the blocking for these devices:
 
 [source,bash,role="execute",subs=attributes+]
 ----
@@ -62,7 +62,7 @@ block
 EOF
 ----
 
-Before applying, validate syntax:
+7.4.2 Before applying, validate syntax:
 
 [source,bash,role="execute",subs=attributes+]
 ----
@@ -73,21 +73,21 @@ If no errors, the file is valid.
 
 Then Restart USBGuard Service
 
-Apply the new policy:
+7.4.3 Apply the new policy:
 
 [source,bash,role="execute",subs=attributes+]
 ----
 sudo systemctl restart usbguard.service
 ----
 
-Review the file:
+7.4.4 Review the file:
 
 [source,bash,role="execute",subs=attributes+]
 ----
 sudo cat /etc/usbguard/rules.conf
 ----
 
-Check which devices are currently allowed:
+7.4.5 Check which devices are currently allowed:
 
 [source,bash,role="execute",subs=attributes+]
 ----
