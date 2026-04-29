@@ -14,9 +14,9 @@ sudo cat /etc/usbguard/rules.conf
 Let's break down a typical rule:
 
 
-----
+```
 allow id 046d:c52b serial "1234ABCD" name "Logitech USB Receiver" hash "jEP/6WzviqdJ5VSeTUY8PatCNBKeaREvo2OqdplND/o=" parent-hash "rV6GDcfPhp0vLago4zlN1VWCOJh/zBvFe3r8CvLPk3c=" via-port "1-2"
-----
+```
 
 **Breaking it down**:
 
@@ -49,13 +49,13 @@ The number at the start (1:, 2:) is the device ID used for runtime control.
 
 Connect a USB device (if available) and identify its attributes:
 
-----
+```
 # Watch for new devices
 sudo usbguard watch
 
 # In another terminal, connect a USB device
 # Observe the output
-----
+```
 
 Press Ctrl+C to stop watching.
 
